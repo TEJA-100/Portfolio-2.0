@@ -423,3 +423,19 @@ body::before{background:radial-gradient(ellipse at 50% 8%,rgba(202,255,84,.055),
 .contact-section::before{opacity:.64}
 .about-section::after,.timeline-section::after,.skills-section::after,.contact-section::after{background:radial-gradient(circle,rgba(202,255,84,.075),rgba(202,255,84,.018) 44%,transparent 74%)}
 @media(max-width:640px){.projects-section::before,.cert-section::before{opacity:.38}.about-section::before,.timeline-section::before,.skills-section::before,.contact-section::before{opacity:.4}}
+
+/* Keep the hero composition centered at tablet and phone widths. The desktop layout remains untouched. */
+@media (min-width:641px) and (max-width:900px){
+  .hero-kinetic-word{top:31%;left:50%;transform:translate(-50%,-50%);width:max-content;max-width:calc(100% - 32px);font-size:clamp(36px,6.8vw,58px);text-align:center}
+  .hero-portrait{left:0;right:0;margin-inline:auto;width:min(80vw,620px);height:100%;max-height:none;bottom:-1%}
+  .hero-actions-only{left:50%;right:auto;transform:translateX(-50%);bottom:82px}
+  .hero-scroll-cue{bottom:18px}
+  .badge-dsa{left:calc(50% - 300px);right:auto;top:52%}
+  .badge-web{left:auto;right:calc(50% - 300px);top:54%}
+  .badge-hardware{left:calc(50% - 255px);right:auto;top:76%}
+  .badge-rag{left:auto;right:calc(50% - 255px);top:76%}
+}
+@media (max-width:640px){
+  .hero-kinetic-word{top:35%;left:50%;transform:translate(-50%,-50%);width:max-content;max-width:calc(100% - 24px);font-size:clamp(19px,calc(7.6vw + 2px),32px);text-align:center;white-space:nowrap}
+  .hero-portrait{left:0;right:0;margin-inline:auto;width:min(98vw,370px);height:68%;bottom:13%}
+}
