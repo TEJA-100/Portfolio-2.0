@@ -446,3 +446,13 @@ body::before{background:radial-gradient(ellipse at 50% 8%,rgba(202,255,84,.055),
 .timeline-certificate-link:hover{transform:translateY(-2px);border-color:var(--lime);background:rgba(202,255,84,.13);color:var(--lime)}
 .timeline-certificate-link:focus-visible{outline:2px solid var(--lime);outline-offset:4px}
 @media(prefers-reduced-motion:reduce){.timeline-certificate-link{transition:none}}
+
+/* Mobile hero balance: keep the portrait contained and the rotating role readable. */
+@media(max-width:640px){
+  .hero-kinetic-word{top:38%;left:50%;width:min(92vw,520px);max-width:calc(100vw - 28px);transform:translate(-50%,-50%);font-size:clamp(28px,8.8vw,38px);line-height:.98;letter-spacing:-.07em;text-align:center;text-wrap:balance;white-space:normal}
+  .hero-portrait{left:0;right:0;margin-inline:auto;width:min(82vw,330px);height:58%;max-height:560px;bottom:13%;object-fit:contain;object-position:center bottom}
+}
+@media(max-width:370px){
+  .hero-kinetic-word{font-size:clamp(26px,8.4vw,32px);width:calc(100vw - 24px)}
+  .hero-portrait{width:min(82vw,285px);height:56%;bottom:14%}
+}
