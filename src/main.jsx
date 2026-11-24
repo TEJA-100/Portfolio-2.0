@@ -38,9 +38,9 @@ const projects = [
   { title: 'DesignHub', description: 'A responsive graphic design course website with course details, curriculum, tools, pricing, certification, and student reviews.', tags: ['HTML5', 'CSS3', 'Bootstrap'], date: 'DECEMBER 2025', demo: 'https://designhub-ts.netlify.app/', repo: 'https://github.com/TEJA-100/DesignHub', image: '/projects/designhub.png', icon: 'fa-pen-ruler', accent: 'design' },
 ];
 const hardwareProjects = [
+  { title: 'Smart Agriculture Monitoring System', highlights: ['Collects real-time temperature, humidity, and soil moisture readings using ESP32.', 'Transmits sensor data through MQTT and integrates cloud services with FastAPI.', 'Uses eight sensor records for ML prediction and the current record for LLM analysis.'], tags: ['ESP32', 'DHT11', 'Soil Moisture Sensor', 'Arduino IDE', 'C++', 'MQTT', 'HiveMQ Cloud', 'Python', 'FastAPI', 'Machine Learning', 'LLM Integration'], date: '', repo: 'https://github.com/TEJA-100/ESP32-Smart-IOT-Farming-System', icon: 'fa-seedling', accent: 'agriculture', media: [{ label: 'Hardware view', image: '/projects/agriculture-hardware.jpeg' }, { label: 'Dashboard view', image: '/projects/agriculture-dashboard.png' }] },
+  { title: 'Smart Patient Health Monitoring System', highlights: ['Monitors heart rate using the SEN-11574 pulse sensor and temperature using LM35.', 'Uses LM741 operational amplifiers for analog signal conditioning.', 'Provides an ESP32-hosted dashboard with buzzer alerts for abnormal readings.'], tags: ['ESP32', 'Arduino IDE', 'Embedded C/C++', 'LM35', 'SEN-11574', 'LM741', 'Wi-Fi', 'HTML', 'CSS', 'JavaScript', 'WebServer'], date: 'OCTOBER 31', repo: 'https://github.com/TEJA-100/Smart-Patient-Health-Monitoring', icon: 'fa-heart-pulse', accent: 'patient', media: [{ label: 'Hardware view', image: '/projects/patient-hardware.jpeg' }, { label: 'Website dashboard', image: '/projects/patient-dashboard.png' }] },
   { title: 'Obstacle Avoiding Robot', highlights: ['Detects obstacles and automatically changes direction to avoid collisions.', 'Controls motor movement through an Arduino-based embedded system.', 'Uses sensor-based decision-making for autonomous navigation.'], tags: ['Arduino UNO', 'Embedded C', 'Ultrasonic Sensor', 'L293D Motor Driver', 'DC Motors', 'Servo Motor', 'AFMotor Library'], date: 'AUGUST 4, 2026', repo: '', icon: 'fa-robot', accent: 'boat', media: [{ label: 'Project view', image: '/projects/moving-bot.jpeg' }] },
-  { title: 'Smart Patient Health Monitoring System', highlights: ['Monitors heart rate using the SEN-11574 pulse sensor and temperature using LM35.', 'Uses LM741 operational amplifiers for analog signal conditioning.', 'Provides an ESP32-hosted dashboard with buzzer alerts for abnormal readings.'], tags: ['ESP32', 'Arduino IDE', 'Embedded C/C++', 'LM35', 'SEN-11574', 'LM741', 'Wi-Fi', 'HTML', 'CSS', 'JavaScript', 'WebServer'], date: 'OCTOBER 31', repo: 'https://github.com/TEJA-100/Smart-Patient-Health-Monitoring', icon: 'fa-heart-pulse', accent: 'patient', media: [{ label: 'Website dashboard', image: '/projects/patient-dashboard.png' }, { label: 'Hardware view', image: '/projects/patient-hardware.jpeg' }] },
-  { title: 'Smart Agriculture Monitoring System', highlights: ['Collects real-time temperature, humidity, and soil moisture readings using ESP32.', 'Transmits sensor data through MQTT and integrates cloud services with FastAPI.', 'Uses eight sensor records for ML prediction and the current record for LLM analysis.'], tags: ['ESP32', 'DHT11', 'Soil Moisture Sensor', 'Arduino IDE', 'C++', 'MQTT', 'HiveMQ Cloud', 'Python', 'FastAPI', 'Machine Learning', 'LLM Integration'], date: '', repo: 'https://github.com/TEJA-100/ESP32-Smart-IOT-Farming-System', icon: 'fa-seedling', accent: 'agriculture', media: [{ label: 'Dashboard view', image: '/projects/agriculture-dashboard.png' }, { label: 'Hardware view', image: '/projects/agriculture-hardware.jpeg' }] },
 ];
 // Leave this list empty until proficiency data is supplied. Add { name, level } entries to show ratings.
 const technicalRatings = [];
@@ -180,7 +180,7 @@ function Hero() {
       <img className="hero-portrait" src="/hero-person.png" alt="" />
     </div>
     <ul className="hero-badges" aria-label="Focus areas"><li className="hero-badge badge-dsa"><i className="fas fa-code-branch" aria-hidden="true" /><span>DSA</span></li><li className="hero-badge badge-web"><i className="fas fa-globe" aria-hidden="true" /><span>Web Development</span></li><li className="hero-badge badge-rag"><i className="fas fa-brain" aria-hidden="true" /><span>RAG</span></li><li className="hero-badge badge-hardware"><i className="fas fa-microchip" aria-hidden="true" /><span>Hardware</span></li></ul>
-    <div className="hero-actions-only" aria-label="Explore the portfolio"><ExternalLink className="button button-lime" href="https://drive.google.com/uc?export=download&id=1avYCRRWVsXt3uGEZGX_RXn91-9rSK1h7"><i className="fas fa-file-pdf" aria-hidden="true" /> Download my CV</ExternalLink><a className="text-link" href="#projects">My previous works <span aria-hidden="true">↘</span></a></div>
+    <div className="hero-actions-only" aria-label="Explore the portfolio"><a className="button button-lime" href="#projects">My previous works <span aria-hidden="true">↘</span></a><ExternalLink className="button button-outline hero-cv-button" href="https://drive.google.com/uc?export=download&id=1avYCRRWVsXt3uGEZGX_RXn91-9rSK1h7" aria-label="Download my CV" title="Download my CV"><i className="fas fa-file-arrow-down" aria-hidden="true" />My Resume</ExternalLink></div>
     <a className="hero-scroll-cue" href="#about"><span className="scroll-cue-line" aria-hidden="true" />SCROLL TO EXPLORE <span className="scroll-cue-arrow" aria-hidden="true">↓</span></a>
   </section>;
 }
@@ -265,7 +265,7 @@ function ProjectCarousel() {
   useEffect(() => { setIndex(0); setMediaIndex(0); }, [category]);
   useEffect(() => {
     if (paused || hovered || focused || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
-    const timer = window.setInterval(() => setIndex(value => (value + 1) % collection.length), 5200);
+    const timer = window.setInterval(() => setIndex(value => (value + 1) % collection.length), 2800);
     return () => window.clearInterval(timer);
   }, [category, collection.length, paused, hovered, focused]);
   useEffect(() => {
@@ -311,7 +311,7 @@ function Certificates() {
   const choose = index => { if (index === active) return; if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { setActive(index); return; } anime.remove('.cert-feature'); anime({ targets: '.cert-feature', opacity: [1, 0], translateY: [0, 8], duration: 160, easing: 'easeInQuad', complete: () => { setActive(index); requestAnimationFrame(() => anime({ targets: '.cert-feature', opacity: [0, 1], translateY: [8, 0], duration: 300, easing: 'easeOutQuad' })); } }); };
   useEffect(() => {
     if (paused || hovered || focused || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
-    const timer = window.setInterval(() => choose((active + 1) % certificates.length), 4800);
+    const timer = window.setInterval(() => choose((active + 1) % certificates.length), 2800);
     return () => window.clearInterval(timer);
   }, [active, paused, hovered, focused]);
   const onKeyDown = event => { if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') { event.preventDefault(); const change = event.key === 'ArrowRight' ? 1 : -1; const next = (active + change + certificates.length) % certificates.length; choose(next); document.querySelector(`[data-cert-index="${next}"]`)?.focus(); } };
@@ -358,6 +358,101 @@ function Contact() {
 
 function Footer() {
   return <footer className="site-footer"><div className="footer-grid"><div className="footer-brand-col"><a className="wordmark footer-wordmark" href="#home">TS<span>.</span></a><p>Building thoughtful digital<br />experiences, one idea at a time.</p><SocialLinks className="footer-socials" /></div><div className="footer-col"><h2>EXPLORE</h2>{links.slice(1, 5).map(([label, href]) => <a href={href} key={href}>{label}</a>)}</div><div className="footer-col"><h2>MORE</h2>{links.slice(5).map(([label, href]) => <a href={href} key={href}>{label}</a>)}<ExternalLink href="https://drive.google.com/file/d/1avYCRRWVsXt3uGEZGX_RXn91-9rSK1h7/view?usp=sharing">Resume <span aria-hidden="true">↗</span></ExternalLink></div><div className="footer-contact"><h2>GET IN TOUCH</h2><a className="footer-email" href="mailto:teja75003@gmail.com">teja75003@gmail.com <span aria-hidden="true">↗</span></a><a className="footer-email" href="tel:+917386475223">+91 73864 75223</a><p>Open to conversations about opportunities and thoughtful collaborations.</p></div></div><div className="footer-bottom"><span>© 2026 Teja Sai Gudla. All rights reserved.</span><a href="#home">Back to top ↑</a><span>DESIGNED &amp; BUILT WITH INTENTION</span></div></footer>;
+}
+
+const assistantSuggestions = [
+  'Tell me about Teja Sai',
+  'Explore my projects',
+  'What are my technical skills?',
+  'Tell me about my experience',
+  'What are my IoT skills?',
+  'How can I contact Teja?',
+];
+
+function getAssistantAnswer(question) {
+  const q = question.toLowerCase();
+  if (/contact|email|phone|reach|linkedin/.test(q)) return `You can reach Teja at [teja75003@gmail.com](mailto:teja75003@gmail.com) or call **+91 73864 75223**. He is also on [LinkedIn](https://www.linkedin.com/in/tejasai-gudla/) and [GitHub](https://github.com/TEJA-100).`;
+  if (/iot|hardware|agriculture|patient|bot|robot|embedded|esp32|arduino/.test(q)) return `Teja's IoT and hardware work includes **Smart Agriculture Monitoring**, **Smart Patient Health Monitoring**, and an **Obstacle Avoiding Robot**. His hands-on areas include ESP32, Arduino UNO, sensor integration, embedded C/C++, MQTT, and ESP32-hosted dashboards.\n\nAsk me to [explore the projects](#projects) or jump to the [hardware project section](#projects).`;
+  if (/skill|stack|technology|technical|language|react|rag|tool/.test(q)) return `Teja works across software and hardware: **JavaScript, React, Node.js, Express.js, MongoDB, REST APIs, and Git**, alongside **C/C++, Arduino UNO, ESP32, sensor integration, and MQTT**. He is also exploring **Generative AI and RAG**.\n\n[See the skills section](#skills).`;
+  if (/experience|career|intern|eduexpose|naviel|work history/.test(q)) return `Teja has **two months of experience** as a MERN Stack Developer at Eduexpose in Hyderabad, where he worked with React, Node.js, Express.js, MongoDB, and full-stack application workflows. His experience also includes frontend and UI/UX work with Naviel in Surampalem.\n\n[View the timeline](#education).`;
+  if (/education|university|college|degree|study|cgpa/.test(q)) return `Teja is pursuing a **B.Tech in Electronics and Communication Engineering at Aditya University, Surampalem**. He completed Intermediate MPC at **Aditya Junior College, Rajamahendravaram**.\n\n[See education and experience](#education).`;
+  if (/certif|certificate|achievement|credential/.test(q)) return `Teja's certificates include C++ Skill Up from GeeksforGeeks, Responsive Web Design and JavaScript Algorithms from freeCodeCamp, Python from GeeksforGeeks, and NumPy and Pandas from the University of Michigan on Coursera.\n\n[Browse the certificates](#certifications).`;
+  if (/project|work|portfolio|resumatch|taskflow|naviel|aquamart|designhub/.test(q)) return `Here are some of Teja's projects:\n\n### Software projects\n- [ResuMatch](https://resu-match-one.vercel.app/) · [GitHub](https://github.com/TEJA-100/ResuMatch)\n- [TaskFlow](https://to-do-list-seven-delta-15.vercel.app/) · [GitHub](https://github.com/TEJA-100/TaskFlow)\n- [Naviel](https://naviel.vercel.app/) · [GitHub](https://github.com/TEJA-100/Naviel)\n- [AquaMart](https://aquamart-ts.netlify.app/) · [GitHub](https://github.com/TEJA-100/AquaMart-)\n- [DesignHub](https://designhub-ts.netlify.app/) · [GitHub](https://github.com/TEJA-100/DesignHub)\n\n### Hardware projects\n- Smart Agriculture Monitoring · [GitHub](https://github.com/TEJA-100/ESP32-Smart-IOT-Farming-System)\n- Smart Patient Health Monitoring · [GitHub](https://github.com/TEJA-100/Smart-Patient-Health-Monitoring)\n- Obstacle Avoiding Robot\n\n[Open the projects section](#projects).`;
+  if (/about|teja|who|introduc|bio|yourself/.test(q)) return `Teja Sai Gudla is an Electronics and Communication Engineering undergraduate at Aditya University who enjoys building practical software and connected systems. He works with the MERN stack, explores Generative AI and RAG, and brings an interdisciplinary interest in embedded systems and IoT.\n\n[Learn more about Teja](#about).`;
+  return `I can help you explore Teja's **projects, skills, experience, education, certificates, and contact details**. Try one of the suggested questions, or ask about a specific project or technology.`;
+}
+
+function AssistantMarkdown({ text }) {
+  const inline = (value, keyPrefix) => value.split(/(\*\*[^*]+\*\*|`[^`]+`|\[[^\]]+\]\((?:https?:\/\/|mailto:|#)[^)\s]+\))/g).filter(Boolean).map((part, index) => {
+    const key = `${keyPrefix}-${index}`;
+    if (part.startsWith('**') && part.endsWith('**')) return <strong key={key}>{part.slice(2, -2)}</strong>;
+    if (part.startsWith('`') && part.endsWith('`')) return <code key={key}>{part.slice(1, -1)}</code>;
+    const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (link) return <a key={key} href={link[2]} target={link[2].startsWith('http') ? '_blank' : undefined} rel={link[2].startsWith('http') ? 'noreferrer' : undefined}>{link[1]}</a>;
+    return part;
+  });
+  return <div className="assistant-markdown">{text.split(/\n\s*\n/).map((block, blockIndex) => {
+    const lines = block.split('\n');
+    if (lines[0].startsWith('### ')) {
+      const rest = lines.slice(1);
+      return <div key={blockIndex}><h4>{inline(lines[0].slice(4), `h-${blockIndex}`)}</h4>{rest.length > 0 && rest.every(line => /^\s*[-*]\s+/.test(line)) && <ul>{rest.map((line, index) => <li key={index}>{inline(line.replace(/^\s*[-*]\s+/, ''), `hlist-${blockIndex}-${index}`)}</li>)}</ul>}</div>;
+    }
+    if (lines.every(line => /^\s*[-*]\s+/.test(line))) return <ul key={blockIndex}>{lines.map((line, index) => <li key={index}>{inline(line.replace(/^\s*[-*]\s+/, ''), `l-${blockIndex}-${index}`)}</li>)}</ul>;
+    return <p key={blockIndex}>{lines.map((line, index) => <React.Fragment key={index}>{index > 0 && <br />}{inline(line, `p-${blockIndex}-${index}`)}</React.Fragment>)}</p>;
+  })}</div>;
+}
+
+function ChatAssistant() {
+  const [open, setOpen] = useState(false);
+  const [minimized, setMinimized] = useState(false);
+  const [messages, setMessages] = useState([]);
+  const [draft, setDraft] = useState('');
+  const [typing, setTyping] = useState(false);
+  const triggerRef = useRef(null);
+  const inputRef = useRef(null);
+  const transcriptRef = useRef(null);
+  const replyTimerRef = useRef(null);
+
+  useEffect(() => () => window.clearTimeout(replyTimerRef.current), []);
+  useEffect(() => {
+    if (!open || minimized) return;
+    transcriptRef.current?.scrollTo({ top: transcriptRef.current.scrollHeight, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+  }, [messages, typing, open, minimized]);
+  useEffect(() => {
+    if (!open) return;
+    const handleEscape = event => { if (event.key === 'Escape') closeChat(); };
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [open]);
+
+  const closeChat = () => { window.clearTimeout(replyTimerRef.current); setTyping(false); setMinimized(false); setOpen(false); requestAnimationFrame(() => triggerRef.current?.focus()); };
+  const sendMessage = (value = draft) => {
+    const question = value.trim();
+    if (!question || typing) return;
+    setMessages(current => [...current, { id: `${Date.now()}-user`, role: 'user', text: question }]);
+    setDraft('');
+    setTyping(true);
+    replyTimerRef.current = window.setTimeout(() => {
+      setMessages(current => [...current, { id: `${Date.now()}-assistant`, role: 'assistant', text: getAssistantAnswer(question) }]);
+      setTyping(false);
+    }, 650);
+  };
+  const clearChat = () => { window.clearTimeout(replyTimerRef.current); setMessages([]); setTyping(false); };
+  const showChat = () => { setOpen(true); setMinimized(false); window.setTimeout(() => inputRef.current?.focus(), 80); };
+
+  return <div className="ts-assistant-widget">
+    {open && <section className={`ts-chat-panel${minimized ? ' is-minimized' : ''}`} role="dialog" aria-modal="false" aria-labelledby="ts-chat-title">
+      <header className="ts-chat-header"><span className="ts-chat-avatar" aria-hidden="true">TS</span><div className="ts-chat-heading"><h2 id="ts-chat-title">TS Assistant</h2><p><span className="ts-online-dot" />Portfolio AI Assistant</p></div><div className="ts-chat-controls">{messages.length > 0 && <button type="button" className="ts-chat-control" onClick={clearChat} aria-label="Clear chat" title="Clear chat"><i className="fas fa-rotate-left" aria-hidden="true" /></button>}<button type="button" className="ts-chat-control" onClick={() => setMinimized(value => !value)} aria-label={minimized ? 'Restore chat' : 'Minimize chat'} title={minimized ? 'Restore chat' : 'Minimize chat'}><i className={`fas ${minimized ? 'fa-up-right-and-down-left-from-center' : 'fa-minus'}`} aria-hidden="true" /></button><button type="button" className="ts-chat-control" onClick={closeChat} aria-label="Close chat" title="Close chat"><i className="fas fa-xmark" aria-hidden="true" /></button></div></header>
+      {!minimized && <><div className="ts-chat-transcript" ref={transcriptRef} aria-live="polite">
+        <div className="ts-chat-message assistant-message"><span className="ts-message-avatar" aria-hidden="true">TS</span><div className="ts-message-content"><AssistantMarkdown text={'Hey! 👋 Welcome to my portfolio.\n\nI’m TS Assistant, your AI guide. I can help you explore my technical skills, projects, experience, education and achievements.\n\nWhat would you like to know?'} /></div></div>
+        {messages.map(message => <div className={`ts-chat-message ${message.role === 'user' ? 'user-message' : 'assistant-message'}`} key={message.id}>{message.role === 'assistant' && <span className="ts-message-avatar" aria-hidden="true">TS</span>}<div className="ts-message-content">{message.role === 'assistant' ? <AssistantMarkdown text={message.text} /> : message.text}</div></div>)}
+        {messages.length === 0 && <div className="ts-chat-suggestions"><p>Suggested questions</p>{assistantSuggestions.map(question => <button key={question} type="button" onClick={() => sendMessage(question)}>{question}<i className="fas fa-arrow-up-right-from-square" aria-hidden="true" /></button>)}</div>}
+        {typing && <div className="ts-chat-message assistant-message"><span className="ts-message-avatar" aria-hidden="true">TS</span><div className="ts-typing-indicator" role="status" aria-label="TS Assistant is typing"><span /><span /><span /></div></div>}
+      </div><form className="ts-chat-composer" onSubmit={event => { event.preventDefault(); sendMessage(); }}><input ref={inputRef} type="text" value={draft} onChange={event => setDraft(event.target.value)} placeholder="Ask anything about Teja..." aria-label="Ask TS Assistant" /><button type="submit" disabled={!draft.trim() || typing} aria-label="Send message"><i className="fas fa-arrow-up" aria-hidden="true" /></button><p>Enter to send · <button type="button" onClick={clearChat}>Clear chat</button></p></form></>}
+      {minimized && <button type="button" className="ts-chat-restore" onClick={() => setMinimized(false)}>Chat is minimized <span>Restore</span></button>}
+    </section>}
+    {!open && <><span className="ts-chat-tooltip" role="tooltip">Chat with TS Assistant</span><button ref={triggerRef} type="button" className="ts-chat-launcher" aria-label="Chat with TS Assistant" aria-expanded={open} onClick={showChat}><span className="ts-chat-launcher-icon"><span className="ts-chat-launcher-monogram">TS</span><span className="ts-chat-launcher-spark" aria-hidden="true">✦</span></span><span className="ts-chat-launcher-ping" aria-hidden="true" /></button></>}
+  </div>;
 }
 
 function App() {
@@ -414,7 +509,7 @@ function App() {
     }
     return () => observer.disconnect();
   }, []);
-  return <><PageLoadingBar /><a className="skip-link" href="#main">Skip to content</a><Header activeSection={activeSection} /><main id="main"><Hero /><About /><Journey /><Skills /><Projects /><Certificates /><Contact /></main><Footer /></>;
+  return <><PageLoadingBar /><a className="skip-link" href="#main">Skip to content</a><Header activeSection={activeSection} /><main id="main"><Hero /><About /><Journey /><Skills /><Projects /><Certificates /><Contact /></main><Footer /><ChatAssistant /></>;
 }
 
 createRoot(document.getElementById('root')).render(<React.StrictMode><App /></React.StrictMode>);

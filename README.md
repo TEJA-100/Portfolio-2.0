@@ -1,4 +1,17 @@
+# TejaSai Portfolio 2.0
 
+A responsive, animated portfolio for Teja Sai Gudla, an Electronics and Communication Engineering undergraduate at Aditya University. It presents education, experience, software and hardware skills, projects, certificates, and contact details in a dark interface with lime accents.
+
+## Features
+
+- Animated hero with role typing, portrait, orbit graphics, and project/CV links
+- Responsive navigation and layouts for desktop, tablet, and mobile
+- Scroll reveals and section backgrounds with reduced-motion support
+- Education and experience timelines
+- Software/hardware skill tabs and grouped technology icons
+- Software and hardware project carousels, including project previews
+- Certificate carousel with dates and links
+- Contact form integrated with EmailJS
 
 ## Tech stack
 
@@ -62,5 +75,3 @@ public/
   favicon.png
 package.json
 ```
-
-
