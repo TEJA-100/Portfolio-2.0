@@ -25,6 +25,7 @@ const socials = [
 ];
 const certificates = [
   { title: 'C++ Skill Up', provider: 'GeeksforGeeks', date: 'September 23, 2026', dateTime: '2026-09-23', image: '/certificates/cplusplus-gfg.png', icon: 'fa-laptop-code', seal: 'GFG', href: 'https://drive.google.com/file/d/1U9IkTcQHbHRn7-JkhWyOi1fzG3n06lE-/view?pli=1' },
+  { title: 'Object Oriented Programming through Java', provider: 'Aditya University · Coursera', date: 'September 10, 2026', dateTime: '2026-09-10', image: '/certificates/java-oop-aditya.png', icon: 'fa-mug-hot', seal: 'AU', href: '/certificates/java-oop-aditya.png' },
   { title: 'Responsive Web Design', provider: 'freeCodeCamp', date: 'October 4, 2025', dateTime: '2025-10-04', image: '/certificates/responsive-web-design-freecodecamp.png', icon: 'fa-code', seal: 'FCC', href: 'https://www.freecodecamp.org/certification/teja24b11ec100/responsive-web-design' },
   { title: 'Legacy JavaScript Algorithms and Data Structures V7', provider: 'freeCodeCamp', date: 'April 15, 2026', dateTime: '2026-04-15', image: '/certificates/javascript-algorithms-freecodecamp.png', icon: 'fa-code-branch', seal: 'FCC', href: 'https://www.freecodecamp.org/certification/teja24b11ec100/javascript-algorithms-and-data-structures' },
   { title: 'NumPy and Pandas Basics for Future Data Scientists', provider: 'Coursera · University of Michigan', date: 'March 5, 2026', dateTime: '2026-03-05', image: '/certificates/numpy-pandas-coursera.png', icon: 'fa-chart-line', seal: 'CO', href: 'https://www.coursera.org/account/accomplishments/verify/PKJT36F9TO8T' },
@@ -218,7 +219,7 @@ function TechStackIcon({ name, className = '' }) {
   return svg ? <img className={`tech-stack-icon${className ? ` ${className}` : ''}`} src={`data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`} alt="" aria-hidden="true" /> : null;
 }
 const skillGroups = [
-  { title: 'Programming Languages', items: [['Python', 'python'], ['C', 'c-mark'], ['JavaScript', 'js'], ['C++', 'cpp']] },
+  { title: 'Programming Languages', items: [['Python', 'python'], ['C', 'c-mark'], ['C++', 'cpp'], ['Java', 'java'], ['JavaScript', 'js']] },
   { title: 'Frontend Development', items: [['HTML5', 'html5'], ['CSS3', 'css3'], ['Bootstrap', 'bootstrap5'], ['Tailwind CSS', 'tailwindcss'], ['React.js', 'react']] },
   { title: 'Backend & Tools', items: [['Node.js', 'nodejs'], ['Express.js', 'expressjs'], ['Firebase', 'firebase'], ['MongoDB', 'mongodb'], ['Git', 'git'], ['GitHub', 'github'], ['VS Code', 'vscode'], ['Render', 'render']] },
   { title: 'Libraries', items: [['NumPy', 'numpy'], ['Pandas', 'pandas'], ['Matplotlib', 'fa-chart-column']] },
